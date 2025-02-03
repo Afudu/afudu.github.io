@@ -8,45 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            /*background-color: #f8f9fa;*/
-            background-color: #E4E3E0;
-            /*font-family: Arial, Helvetica, sans-serif;*/
-             font-family: 'Open Sans', sans-serif;
-             font-size: 14px;
-            /*line-height: 1.6;*/
-        }
-        .cv-container {max-width: 900px; margin: 20px auto; padding:0;}
-        .left-column {
-            background-color: #222E3E;
-            color: white;
-            padding: 20px;
-            /*text-align: center;*/
-        }
-        .right-column {
-            background-color: white;
-            padding: 20px;
-        }
-        .cv-section {
-            margin-bottom: 20px;
-        }
-        .divider {
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 10px;
-        }
-        .download-btn {position: fixed;top: 10px; right: 10px;  z-index: 1000;}
-
-        .shadow{
-	       -webkit-box-shadow: 1px 2px 6px rgba(0,0,0, 0.5);
-	       box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
-        }
-          .icon { color: #007bff; margin-right: 10px; }
-          .text-blue{ color:#4AA7E0;}
+        body {background-color: #E4E3E0; font-family: 'Open Sans', sans-serif; font-size: 14px;}
+        .cv-container { max-width: 900px; margin: 20px  auto; position: relative; padding: 0; }
+        /*@media (max-width: 992px){.cv-container{padding-left: 10px; padding-right: 10px;} }*/
+        .left-column {background-color: #222E3E;color: white; padding: 20px;}
+        .right-column {background-color: white; padding: 20px;}
+        .cv-section { margin-bottom: 30px;}
+        .divider {border-bottom: 1px solid #ccc; margin-bottom: 10px;}
+        /*.download-btn {position: fixed;top: 30px; right: 10px;  z-index: 1000;}
+        /*.download-btn {position: fixed;top: 30px; right: 230px;  z-index: 1000;}*/
+        .download-btn { position: absolute; top: 20px; right: 20px; }
+        .shadow{ -webkit-box-shadow: 1px 2px 6px rgba(0,0,0, 0.5); box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5); }
+        .icon { margin-right: 10px; }
+        .text-blue{ color:#4AA7E0;}
     </style>
+
 </head>
 <body>
-    <a href="#" class="btn btn-primary download-btn"><i class="fas fa-download"></i> Download</a>
+
     <div class="container cv-container shadow">
+
+        <a href="pdf/CV_Abdoul_B_Seydou.pdf" class="btn btn-primary download-btn d-nonex"
+           onclick="this.style.display='none'">
+            <i class="fas fa-download"></i> Download</a>
+
         <!-- First Row -->
         <div class="row g-0">
             <!-- Left Column -->
@@ -55,31 +40,32 @@
             </div>
             <!-- Right Column -->
             <div class="col-md-8 right-column">
-                <strong>Abdoul Baki Seydou</strong>
-                <h5 class="text-blue">Python Developer</h5>
+                <br> <br> <br>
+                <h2>Abdoul Baki Seydou</h2>
+                <h2 class="text-blue">Python Developer</h2>
                 <p>Motivated and detail-oriented Python developer with a solid foundation in programming
-                    and problem-solving.</p> <br>
+                    and problem-solving.</p>
 <!--                <p>Eager to leverage my skills and education from OpenClassrooms to contribute effectively-->
 <!--                    to a dynamic team.</p>-->
 
-                <div class="">
-                    <h5 class="text-blue"><i class="fas fa-graduation-cap"></i> Education</h5>
-                    <div class="divider"></div>
-                    <div class="school mb-2">
-                        <strong>OpenClassrooms</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2022 - 2025</span>
-                        <br><span>Python Software Developer - Bachelor's-level diploma</span>
-                        <ul>
-                            <li>Gained expertise in Python programming, web development,
-                                and software engineering best practices.</li>
-                        </ul>
-                    </div>
-                      <div class="school">
-                        <strong>Ferhat Abbas University</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 1997</span><br>
-                        <span>Civil Engineering - Master's degree</span>
-                     </div>
-                </div>
+<!--                <div class="">-->
+<!--                    <h5 class="text-blue"><i class="fas fa-graduation-cap"></i> Education</h5>-->
+<!--                    <div class="divider"></div>-->
+<!--                    <div class="school mb-2">-->
+<!--                        <strong>OpenClassrooms</strong>-->
+<!--                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2022 - 2025</span>-->
+<!--                        <br><span>Python Software Developer - Bachelor's-level diploma</span>-->
+<!--                        <ul>-->
+<!--                            <li>Gained expertise in Python programming, web development,-->
+<!--                                and software engineering best practices.</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                      <div class="school">-->
+<!--                        <strong>Ferhat Abbas University</strong>-->
+<!--                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 1997</span><br>-->
+<!--                        <span>Civil Engineering - Master's degree</span>-->
+<!--                     </div>-->
+<!--                </div>-->
 
 
 
@@ -92,31 +78,38 @@
                 <div class="cv-section">
                     <h5>About me</h5>
                     <div class="divider"></div>
-                    <p><i class="fas fa-map-marker-alt"></i> Leixlip, Co. Kildare, Ireland</p>
-                    <p><i class="fas fa-envelope"></i> abdoul.bseydou@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +353 12 345 6789</p>
-                    <p><i class="fab fa-github"></i> github.com/afudu</p>
-                    <p><i class="fab fa-linkedin"></i> linkedin.com/in/abdoul-b-seydou</p>
-                    <p><i class="fas fa-flag"></i> Mali</p>
-                    <p><i class="fa-id-card"></i> Stamp 4</p>
+                    <p><i class="fas fa-map-marker-alt icon"></i> Leixlip, Co. Kildare, Ireland</p>
+                    <p><i class="fas fa-envelope icon"></i> abdoul.bseydou@gmail.com</p>
+                    <p><i class="fas fa-phone icon"></i> +353 12 345 6789</p>
+                    <p><i class="fab fa-github icon"></i> github.com/afudu</p>
+                    <p><i class="fab fa-linkedin icon"></i> linkedin.com/in/abdoul-b-seydou</p>
+                    <p><i class="fas fa-flag icon"></i> Mali</p>
+                    <p><i class="fa-solid fa-file icon"></i> Stamp 4</p>
                 </div>
                 <div class="cv-section">
                     <h5>Skills</h5>
                     <div class="divider"></div>
                     <strong>Programming Languages</strong>
-                    <ul> <li>Python</li> <li>JavaScript</li></ul>
+                    <ul> <li>Python - Advanced</li>
+                         <li>HTML - Advanced</li>
+                         <li>CSS - Advanced</li>
+                         <li>JavaScript - Intermediate</li>
+                    </ul>
 
                     <strong>Frameworks</strong>
                     <ul> <li>Django</li> <li>Flask</li></ul>
 
                     <strong>Databases</strong>
-                    <ul> <li>PostgreSQL</li> <li>MySQL</li></ul>
+                    <ul> <li>PostgreSQL</li> <li>SQLite</li></ul>
 
                     <strong>Tools</strong>
-                    <ul> <li>Git</li> <li>Docker</li></ul>
+                    <ul> <li>Git</li> <li>Docker</li><li>Sentry</li></ul>
 
                     <strong>Testing</strong>
                     <ul> <li>PyTest</li> <li>Postman</li></ul>
+
+                    <strong>Methodology</strong>
+                    <ul> <li>Agile</li> <li>Scrum</li></ul>
 
                 </div>
                 <div class="cv-section">
@@ -136,7 +129,7 @@
                     <div class="divider"></div>
                     <p>Available upon request</p>
                 </div>
-                <div class="cv-section">
+                <div class="xcv-section">
                     <h5>Hobbies & Interests</h5>
                     <div class="divider"></div>
                     <p>Involved in open-source projects supporting under-resourced languages.</p>
@@ -144,25 +137,25 @@
             </div>
             <!-- Right Column -->
             <div class="col-md-8 right-column">
-<!--                <div class="cv-section mb-5">-->
-<!--                    <h5 class="text-blue"><i class="fas fa-graduation-cap"></i> Education</h5>-->
-<!--                    <div class="divider"></div>-->
-<!--                    <div class="school mb-4">-->
-<!--                        <strong>OpenClassrooms</strong>-->
-<!--                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2022 - 2025</span>-->
-<!--                        <br><span>Python Software Developer - Bachelor's-level diploma</span>-->
-<!--                        <ul>-->
-<!--                            <li>Gained expertise in Python programming, web development,-->
-<!--                                and software engineering best practices.</li>-->
+                <div class="cv-section mb-5">
+                    <h5 class="text-blue"><i class="fas fa-graduation-cap"></i> Education</h5>
+                    <div class="divider"></div>
+                    <div class="school mb-4">
+                        <strong>OpenClassrooms</strong>
+                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2022 - 2025</span>
+                        <br><span>Python Software Developer - Bachelor's degree</span>
+                        <ul>
+                            <li>Gained expertise in Python programming, web development,
+                                and software engineering best practices.</li>
 
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                      <div class="school">-->
-<!--                        <strong>Ferhat Abbas University</strong>-->
-<!--                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 1997</span><br>-->
-<!--                        <span>Civil Engineering - Master's degree</span>-->
-<!--                     </div>-->
-<!--                </div>-->
+                        </ul>
+                    </div>
+                      <div class="school">
+                        <strong>Ferhat Abbas University, Setif, Algeria</strong>
+                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 1997</span><br>
+                        <span>Civil Engineer - Master's degree</span>
+                     </div>
+                </div>
                 <div class="cv-section mb-5">
                     <h5 class="text-blue"><i class="fas fa-laptop-code"></i> Projects</h5>
                     <div class="divider"></div>
@@ -180,7 +173,7 @@
                         <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2024</span><br>
                         <ul>
                             <li>Built a secure role-based RESTful API for a CRM system with PostgreSQL database,
-                                managing client data and allowing CRUD functionalities.</li>
+                                managing client data and interactions.</li>
                         </ul>
                     </div>
 
@@ -192,6 +185,15 @@
                                 enabling users to post, view, and manage book reviews.</li>
                         </ul>
                     </div>
+
+<!--                    <div class="project4 mb-4">-->
+<!--                        <strong>Movie Website (HTML/CSS/Javascript)</strong>-->
+<!--                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2023</span><br>-->
+<!--                        <ul>-->
+<!--                            <li>Developed a responsive website using HTML, CSS and Javascript,-->
+<!--                            showcasing dynamic movie details fetched in real time.</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
 
                     <div class="project4 mb-4">
                         <strong>Chess Tournament Manager</strong>
@@ -206,8 +208,8 @@
                         <strong>BeautifulSoup Data Scraper</strong>
                         <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2022</span><br>
                         <ul>
-                            <li>Developed a web scraper using BeautifulSoup to extract
-                                and analyze data from various online sources, and store them in CSV files. </li>
+                            <li>Developed a web scraper using BeautifulSoup to extract, store
+                                and analyze data from various online sources. </li>
                         </ul>
                     </div>
 
@@ -233,28 +235,48 @@
                         <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2018 - 2022</span><br>
                         <span>Covalen, DXC | Dublin, Ireland</span>
                         <ul>
-                            <li>Designed, developed and delivered training to new hires and support teams. </li>
+<!--                            <li>Designed, developed and delivered training to new hires and support teams. </li>-->
+                            <li>Delivered Induction training to new hires.</li>
+                            <li>Delivered technical enhancement training to support teams. </li>
+                             <li>Designed and developed training programs to achieve key organisational objectives. </li>
                         </ul>
                     </div>
 
-                    <div class="experience2 mb-4">
+                    <div class="experience3 mb-4">
                         <strong>Remote Support Specialist</strong>
                         <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2012 - 2018</span><br>
                         <span>CPL, Hewlett-Packard | Dublin, Ireland</span>
                         <ul>
-                            <li>Provided Tier 2 Technical Support to corporate employees on PC,
-                                hardware and software, while reducing escalation workload.</li>
+<!--                            <li>Provided Tier 2 Technical Support to corporate employees on PC,-->
+<!--                                hardware and software, while reducing escalation workload.</li>-->
+                            <li>Provided Tier 2 Support to corporate employees on PC,
+                                hardware and software. </li>
+                            <li>Reduced escalation workload and maintained timely feedback to management.</li>
+                            <li>Managed outages within agreed SLA.</li>
                         </ul>
                     </div>
 
-                    <div class="experience2 ">
+                    <div class="experience4 mb-4 ">
                         <strong>Knowledge Coordinator</strong>
                         <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2007 - 2012</span><br>
                         <span>CPL, Hewlett-Packard | Dublin, Ireland</span>
                         <ul>
-                            <li>Wrote and updated the support procedures and troubleshooting documents.</li>
+<!--                            <li>Wrote and updated the support procedures and troubleshooting documents.</li>-->
+                            <li>Wrote and updated the support procedures.</li>
+                            <li>Created troubleshooting documents and maintained the knowledge base.</li>
+                            <li>Provided Technical Support to Level 2 agents and Coaches.</li>
                         </ul>
                     </div>
+
+<!--                    <div class="experience5">-->
+<!--                        <strong>Technical Support Analyst</strong>-->
+<!--                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2005 - 2007</span><br>-->
+<!--                        <span>CPL, Hewlett-Packard | Dublin, Ireland</span>-->
+<!--                        <ul>-->
+<!--                            <li>Answered calls from Microsoft employees and resolved their issues.</li>-->
+<!--                            <li>Provided training for new starters on the Microsoft desk.</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
 
                 </div>
 
