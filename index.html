@@ -54,6 +54,28 @@
     justify-content: space-between;
     height: 56px;
   }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-avatar span {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: white;
+    letter-spacing: 0.04em;
+  }
   .nav-name {
     font-family: 'DM Mono', monospace;
     font-size: 13px;
@@ -66,12 +88,26 @@
     color: var(--ink-muted);
     text-decoration: none;
     transition: color 0.15s;
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: width 0.2s ease;
   }
   .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--accent); font-weight: 500; }
+  .nav-links a.active::after { width: 100%; }
 
-  .nav-links a.active {color: var(--accent);font-weight: 500;}
-
-  /* Main layout */
+  /* Main */
   main {
     max-width: var(--max);
     margin: 0 auto;
@@ -80,7 +116,7 @@
 
   /* Hero */
   .hero {
-    padding: 6rem 0 4rem;
+    padding: 4rem 0;
     border-bottom: 1px solid var(--border);
   }
   .hero-eyebrow {
@@ -100,10 +136,7 @@
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
   }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
   .hero-sub {
     font-size: 17px;
     color: var(--ink-muted);
@@ -111,6 +144,7 @@
     line-height: 1.65;
     margin-bottom: 2rem;
   }
+  .hero-sub strong { color: var(--ink); font-weight: 500; }
   .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
     display: inline-flex;
@@ -122,19 +156,12 @@
     font-weight: 500;
     text-decoration: none;
     transition: all 0.15s;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
   }
-  .btn-primary {
-    background: var(--accent);
-    color: white;
-  }
+  .btn-primary { background: var(--accent); color: white; }
   .btn-primary:hover { background: #1e3d8f; }
-  .btn-ghost {
-    background: transparent;
-    color: var(--ink-muted);
-    border: 1px solid var(--border);
-  }
+  .btn-ghost { background: transparent; color: var(--ink-muted); border: 1px solid var(--border); }
   .btn-ghost:hover { border-color: var(--ink-faint); color: var(--ink); }
 
   /* Sections */
@@ -149,7 +176,27 @@
     margin-bottom: 2.5rem;
   }
 
-  /* Projects */
+  /* Project group divider */
+  .project-group-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin: 3rem 0 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .project-group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .project-group-label:first-child { margin-top: 0; }
+
+  /* Full project cards */
   .projects-grid { display: flex; flex-direction: column; gap: 1.5rem; }
   .project-card {
     background: var(--surface-raised);
@@ -202,10 +249,7 @@
     border-radius: 4px;
     letter-spacing: 0.02em;
   }
-  .tag-accent {
-    background: var(--accent-light);
-    color: var(--accent);
-  }
+  .tag-accent { background: var(--accent-light); color: var(--accent); }
   .project-link {
     display: inline-flex;
     align-items: center;
@@ -218,8 +262,6 @@
   }
   .project-link:hover { text-decoration: underline; }
   .project-link svg { width: 13px; height: 13px; }
-
-  /* Featured badge */
   .featured-badge {
     display: inline-block;
     font-family: 'DM Mono', monospace;
@@ -233,23 +275,59 @@
     margin-bottom: 0.75rem;
   }
 
-  /* About */
-  .about-text {
-    font-size: 16px;
-    color: var(--ink-muted);
-    max-width: 600px;
-    line-height: 1.75;
-  }
-  .about-text p + p { margin-top: 1.1rem; }
-  .about-text strong { color: var(--ink); font-weight: 500; }
-
-  /* Skills row */
-  .skills-row {
+  /* Compact earlier-work cards */
+  .project-card-compact {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.5rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+    color: inherit;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 1.75rem;
   }
+  .project-card-compact:hover {
+    border-color: #c8c4be;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .compact-left { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .compact-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .compact-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .compact-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  .compact-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+  .compact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .compact-link:hover { text-decoration: underline; }
+  .compact-link svg { width: 12px; height: 12px; }
+
+  /* Skills */
+  .skills-row { display: flex; flex-wrap: wrap; gap: 8px; }
   .skill-pill {
     font-size: 13px;
     color: var(--ink-muted);
@@ -263,7 +341,7 @@
   /* Contact */
   .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
     margin-top: 0.5rem;
   }
@@ -271,18 +349,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 14px;
-    color: var(--ink-muted);
     text-decoration: none;
     padding: 14px 16px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     transition: all 0.15s;
+    overflow: hidden;
   }
-  .contact-item:hover {
-    border-color: var(--ink-faint);
-    color: var(--ink);
-  }
+  .contact-item:hover { border-color: var(--ink-faint); }
   .contact-icon {
     width: 32px;
     height: 32px;
@@ -294,19 +368,26 @@
     flex-shrink: 0;
   }
   .contact-icon svg { width: 16px; height: 16px; color: var(--ink-muted); }
+  .contact-text { overflow: hidden; min-width: 0; }
   .contact-label { font-size: 11px; color: var(--ink-faint); display: block; margin-bottom: 1px; }
-  .contact-value { font-weight: 500; color: var(--ink); font-size: 13px; }
+  .contact-value {
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 13px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
   /* Footer */
   footer {
     max-width: var(--max);
     margin: 0 auto;
     padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     font-size: 13px;
     color: var(--ink-faint);
+    text-align: center;
   }
 
   @media (max-width: 600px) {
@@ -314,7 +395,9 @@
     .hero { padding: 3.5rem 0 3rem; }
     section { padding: 3rem 0; }
     .project-card { padding: 1.25rem; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .project-card-compact { flex-direction: column; align-items: flex-start; }
+    .compact-right { flex-direction: row; }
+    .contact-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -322,9 +405,13 @@
 
 <nav>
   <div class="nav-inner">
-    <span class="nav-name">abdoul.bseydou</span>
+    <a href="/" class="nav-brand">
+      <div class="nav-avatar"><span>ABS</span></div>
+      <span class="nav-name">abdoul.bseydou</span>
+    </a>
     <div class="nav-links">
       <a href="#projects">Projects</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -337,12 +424,10 @@
     <p class="hero-eyebrow">Python · Django · AI Developer</p>
     <h1>Building things that<br><em>work in production</em></h1>
     <p class="hero-sub">
-      <p>
-        Hi, I'm <strong>Abdoul Baki Seydou</strong><br> A Python and Django developer based in Ireland.<br>
-        I build backend systems and AI-powered applications — REST APIs, RAG pipelines,
-        full-stack web platforms — with a focus on clean code, testing, and
-        production deployment.<br> <br>
-
+      Hi, I'm <strong>Abdoul Baki Seydou</strong><br>
+      Python and Django developer with 20+ years in technical support and knowledge management.
+      I build backend systems, AI-powered applications, and full-stack web platforms —
+      tested, monitored, and deployed.
     </p>
     <div class="hero-links">
       <a href="#projects" class="btn btn-primary">View projects</a>
@@ -354,9 +439,11 @@
   <!-- Projects -->
   <section id="projects">
     <p class="section-label">Selected projects</p>
+
+    <!-- Recent -->
+    <p class="project-group-label">Recent</p>
     <div class="projects-grid">
 
-      <!-- Songhay Online -->
       <a class="project-card" href="https://songhay.org" target="_blank" rel="noopener">
         <div class="featured-badge">Live · production</div>
         <div class="project-header">
@@ -378,12 +465,10 @@
         </div>
         <span class="project-link">
           songhay.org
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </span>
       </a>
 
-      <!-- RAG Glossary -->
       <a class="project-card" href="https://songhay.org/glossary/" target="_blank" rel="noopener">
         <div class="featured-badge">Live · AI application</div>
         <div class="project-header">
@@ -408,14 +493,11 @@
         </div>
         <span class="project-link">
           songhay.org/glossary
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </span>
       </a>
 
-      <!-- Data Science Dashboard -->
-      <a class="project-card" href="https://github.com/Afudu/P16_OpenClassroom_DataScience"
-         target="_blank" rel="noopener">
+      <a class="project-card" href="https://github.com/Afudu/P16_OpenClassroom_DataScience" target="_blank" rel="noopener">
         <div class="project-header">
           <h2 class="project-title">Data Visualisation Dashboard</h2>
           <span class="project-year">2025</span>
@@ -433,12 +515,10 @@
         </div>
         <span class="project-link">
           View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </span>
       </a>
 
-      <!--P13 CI/CD Pipeline -->
       <a class="project-card" href="https://github.com/Afudu/P13_OpenClassroom" target="_blank" rel="noopener">
         <div class="project-header">
           <h2 class="project-title">CI/CD Pipeline Deployment</h2>
@@ -456,12 +536,10 @@
         </div>
         <span class="project-link">
           View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </span>
       </a>
 
-      <!-- P12 CRM API -->
       <a class="project-card" href="https://github.com/Afudu/P12_OpenClassroom" target="_blank" rel="noopener">
         <div class="project-header">
           <h2 class="project-title">REST CRM API</h2>
@@ -479,12 +557,10 @@
         </div>
         <span class="project-link">
           View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </span>
       </a>
 
-      <!-- P11 Flask App Enhancement -->
       <a class="project-card" href="https://github.com/Afudu/P11_OpenClassroom" target="_blank" rel="noopener">
         <div class="project-header">
           <h2 class="project-title">Web App Debugging and Enhancement</h2>
@@ -496,157 +572,154 @@
         </p>
         <div class="project-tags">
           <span class="tag tag-accent">Flask</span>
-          <span class="tag ">Pytest</span>
-          <span class="tag ">Locust</span>
-          <span class="tag ">Json</span>
+          <span class="tag">Pytest</span>
+          <span class="tag">Locust</span>
+          <span class="tag">JSON</span>
         </div>
         <span class="project-link">
           View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </span>
       </a>
 
-      <!-- P10 Django Secure Rest API -->
       <a class="project-card" href="https://github.com/Afudu/P10_OpenClassroom" target="_blank" rel="noopener">
         <div class="project-header">
           <h2 class="project-title">Secure RESTful API Development</h2>
           <span class="project-year">2024</span>
         </div>
         <p class="project-desc">
-          Developed a secure, role‑based Django RESTful API for an issue‑tracking platform.
+          Developed a secure, role-based Django RESTful API for an issue-tracking platform.
         </p>
         <div class="project-tags">
           <span class="tag tag-accent">Django REST</span>
           <span class="tag tag-accent">JWT</span>
-          <span class="tag">SQlite</span>
+          <span class="tag">SQLite</span>
           <span class="tag">Postman</span>
         </div>
         <span class="project-link">
           View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </span>
       </a>
 
-      <!-- P9 Book review -->
-      <a class="project-card" href="https://github.com/Afudu/P9_OpenClassroom" target="_blank" rel="noopener">
-        <div class="project-header">
-          <h2 class="project-title">Book Review App</h2>
-          <span class="project-year">2023</span>
+    </div>
+
+    <!-- Earlier work -->
+    <p class="project-group-label">Earlier work</p>
+    <div class="projects-grid">
+
+      <a class="project-card-compact" href="https://github.com/Afudu/P9_OpenClassroom" target="_blank" rel="noopener">
+        <div class="compact-left">
+          <span class="compact-title">Book Review App</span>
+          <div class="compact-tags">
+            <span class="tag tag-accent">Django</span>
+            <span class="tag tag-accent">Bootstrap</span>
+            <span class="tag">SQLite</span>
+          </div>
         </div>
-        <p class="project-desc">
-          Created a secure full-stack Django application with CRUD functionalities,
-          enabling users to post, view, and manage book reviews.
-        </p>
-        <div class="project-tags">
-          <span class="tag tag-accent">Django</span>
-          <span class="tag tag-accent">Bootstrap</span>
-          <span class="tag">SQlite</span>
+        <div class="compact-right">
+          <span class="compact-year">2023</span>
+          <span class="compact-link">
+            GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </span>
         </div>
-        <span class="project-link">
-          View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
       </a>
 
-      <!-- P7 Solve Problems Using Algorithms in Python -->
-      <a class="project-card" href="https://github.com/Afudu/P7_OpenClassroom" target="_blank" rel="noopener">
-        <div class="project-header">
-          <h2 class="project-title">Python Algorithm Optimization</h2>
-          <span class="project-year">2023</span>
+      <a class="project-card-compact" href="https://github.com/Afudu/P7_OpenClassroom" target="_blank" rel="noopener">
+        <div class="compact-left">
+          <span class="compact-title">Python Algorithm Optimisation</span>
+          <div class="compact-tags">
+            <span class="tag tag-accent">Dynamic Programming</span>
+            <span class="tag tag-accent">itertools</span>
+            <span class="tag">CSV</span>
+          </div>
         </div>
-        <p class="project-desc">
-          Built optimized Python algorithms to solve a 0/1‑knapsack‑style investment
-          problem efficiently across various datasets.
-        </p>
-        <div class="project-tags">
-          <span class="tag tag-accent">Dynamic Programming</span>
-          <span class="tag tag-accent">itertools</span>
-          <span class="tag tag-accent">Time Complexity</span>
-          <span class="tag">Csv</span>
+        <div class="compact-right">
+          <span class="compact-year">2023</span>
+          <span class="compact-link">
+            GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </span>
         </div>
-        <span class="project-link">
-          View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
       </a>
 
-      <!-- P6 Movie website -->
-      <a class="project-card" href="https://github.com/Afudu/P6_OpenClassroom" target="_blank" rel="noopener">
-        <div class="project-header">
-          <h2 class="project-title">Python Algorithm Optimization</h2>
-          <span class="project-year">2023</span>
+      <a class="project-card-compact" href="https://github.com/Afudu/P6_OpenClassroom" target="_blank" rel="noopener">
+        <div class="compact-left">
+          <span class="compact-title">Movie Review Website</span>
+          <div class="compact-tags">
+            <span class="tag tag-accent">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
         </div>
-        <p class="project-desc">
-          Developed a responsive movie review website using HTML, CSS and Javascript.
-        </p>
-        <div class="project-tags">
-          <span class="tag tag-accent">Javascript</span>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
+        <div class="compact-right">
+          <span class="compact-year">2023</span>
+          <span class="compact-link">
+            GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </span>
         </div>
-        <span class="project-link">
-          View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
       </a>
 
-      <!-- P4 Chess Tournament Manager -->
-      <a class="project-card" href="https://github.com/Afudu/P4_OpenClassroom" target="_blank" rel="noopener">
-        <div class="project-header">
-          <h2 class="project-title">Chess Tournament App</h2>
-          <span class="project-year">2023</span>
+      <a class="project-card-compact" href="https://github.com/Afudu/P4_OpenClassroom" target="_blank" rel="noopener">
+        <div class="compact-left">
+          <span class="compact-title">Chess Tournament App</span>
+          <div class="compact-tags">
+            <span class="tag tag-accent">Python</span>
+            <span class="tag tag-accent">MVC</span>
+            <span class="tag">TinyDB</span>
+          </div>
         </div>
-        <p class="project-desc">
-          Designed and built using the MVC pattern a chess tournament app,
-          allowing tournament managers to run the entire events offline.
-        </p>
-        <div class="project-tags">
-          <span class="tag tag-accent">Python</span>
-          <span class="tag tag-accent">MVC</span>
-          <span class="tag">TinyDB</span>
-          <span class="tag">Json</span>
+        <div class="compact-right">
+          <span class="compact-year">2023</span>
+          <span class="compact-link">
+            GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </span>
         </div>
-        <span class="project-link">
-          View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
       </a>
 
-      <!-- P2 BeautifulSoup Data Scraper -->
-      <a class="project-card" href="https://github.com/Afudu/P2_OpenClassroom" target="_blank" rel="noopener">
-        <div class="project-header">
-          <h2 class="project-title">BeautifulSoup Data Scraper</h2>
-          <span class="project-year">2022</span>
+      <a class="project-card-compact" href="https://github.com/Afudu/P2_OpenClassroom" target="_blank" rel="noopener">
+        <div class="compact-left">
+          <span class="compact-title">BeautifulSoup Data Scraper</span>
+          <div class="compact-tags">
+            <span class="tag tag-accent">Web Scraping</span>
+            <span class="tag">BeautifulSoup</span>
+            <span class="tag">Requests</span>
+          </div>
         </div>
-        <p class="project-desc">
-          Developed a Python web scraper using BeautifulSoup to extract and process
-          data from a specified website, demonstrating proficiency in web scraping techniques.
-        </p>
-        <div class="project-tags">
-          <span class="tag tag-accent">Web Scraping</span>
-          <span class="tag">BeautifulSoup</span>
-          <span class="tag">Requests</span>
-          <span class="tag">Json</span>
+        <div class="compact-right">
+          <span class="compact-year">2022</span>
+          <span class="compact-link">
+            GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </span>
         </div>
-        <span class="project-link">
-          View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
       </a>
-
 
     </div>
   </section>
 
   <!-- About -->
   <section id="about">
+    <p class="section-label">About</p>
+    <div class="about-text">
+      <p>
+        I'm <strong>Abdoul Baki Seydou</strong>, a Python and Django developer based in
+        Leixlip, Co. Kildare, Ireland. <br>I completed a Python Software Developer Bachelor's
+        at OpenClassrooms in 2025, combining it with 20+ years of experience in technical
+        support, knowledge management, and training.
+      </p>
+
+      <p>
+        I build backend systems and AI-powered applications — REST APIs, RAG pipelines,
+        full-stack web platforms — with a focus on clean code, testing, and
+        production deployment. <br>I'm currently extending my work into multi-agent
+        architectures with LangGraph and FastAPI.<br>
+      </p>
+    </div>
+    <br>
     <div class="skills-row">
       <span class="skill-pill">Python</span>
       <span class="skill-pill">Django</span>
@@ -672,7 +745,7 @@
         <div class="contact-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
         </div>
-        <div>
+        <div class="contact-text">
           <span class="contact-label">Email</span>
           <span class="contact-value">abdoul.bseydou@gmail.com</span>
         </div>
@@ -682,7 +755,7 @@
         <div class="contact-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         </div>
-        <div>
+        <div class="contact-text">
           <span class="contact-label">GitHub</span>
           <span class="contact-value">github.com/Afudu</span>
         </div>
@@ -692,7 +765,7 @@
         <div class="contact-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </div>
-        <div>
+        <div class="contact-text">
           <span class="contact-label">LinkedIn</span>
           <span class="contact-value">abdoul-b-seydou</span>
         </div>
@@ -704,14 +777,30 @@
 </main>
 
 <footer>
-
+  <span>Abdoul Baki Seydou · Leixlip, Ireland · Open to hybrid / remote roles</span>
 </footer>
 
 <script>
-  const links = document.querySelectorAll('.nav-links a');
-  links.forEach(link => {
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' });
+
+  document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+
+  navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      links.forEach(l => l.classList.remove('active'));
+      navLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
     });
   });
