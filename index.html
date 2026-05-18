@@ -1,309 +1,721 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdoul's CV</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {background-color: #E4E3E0; font-family: 'Open Sans', sans-serif; font-size: 14px;}
-        .cv-container { max-width: 900px; margin: 20px  auto; position: relative; padding: 0; }
-        /*@media (max-width: 992px){.cv-container{padding-left: 10px; padding-right: 10px;} }*/
-        @media (max-width: 767px){.space{display:none;} }
-        .left-column {background-color: #222E3E;color: white; padding: 20px;}
-        .right-column {background-color: white; padding: 20px;}
-        .cv-section { margin-bottom: 30px;}
-        .divider {border-bottom: 1px solid #ccc; margin-bottom: 10px;}
-        .download-btn { position: absolute; top: 20px; right: 20px; }
-        .shadow{ -webkit-box-shadow: 1px 2px 6px rgba(0,0,0, 0.5); box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5); }
-        .icon { margin-right: 10px; }
-        .text-blue{ color:#4AA7E0;}
-        a {text-decoration: none;color: inherit;}
-        a:hover {text-decoration: underline;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdoul Baki Seydou — Python & AI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --ink: #1a1917;
+    --ink-muted: #6b6860;
+    --ink-faint: #a8a49e;
+    --surface: #faf9f7;
+    --surface-raised: #ffffff;
+    --border: #e8e5e0;
+    --accent: #2a4fa8;
+    --accent-light: #eef2fc;
+    --tag-bg: #f0ede8;
+    --tag-text: #4a4640;
+    --radius: 10px;
+    --max: 760px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Nav */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 249, 247, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 14px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-links a.active {color: var(--accent);font-weight: 500;}
+
+  /* Main layout */
+  main {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 6rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--ink-muted);
+    max-width: 520px;
+    line-height: 1.65;
+    margin-bottom: 2rem;
+  }
+  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+  .btn-primary:hover { background: #1e3d8f; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--ink-faint); color: var(--ink); }
+
+  /* Sections */
+  section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Projects */
+  .projects-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+  .project-card {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .project-card:hover {
+    border-color: #c8c4be;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  }
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+  .project-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .project-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+  .project-desc {
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+  .tag-accent {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  .project-link:hover { text-decoration: underline; }
+  .project-link svg { width: 13px; height: 13px; }
+
+  /* Featured badge */
+  .featured-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+  }
+
+  /* About */
+  .about-text {
+    font-size: 16px;
+    color: var(--ink-muted);
+    max-width: 600px;
+    line-height: 1.75;
+  }
+  .about-text p + p { margin-top: 1.1rem; }
+  .about-text strong { color: var(--ink); font-weight: 500; }
+
+  /* Skills row */
+  .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.75rem;
+  }
+  .skill-pill {
+    font-size: 13px;
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    border-radius: 20px;
+    transition: border-color 0.15s;
+  }
+  .skill-pill:hover { border-color: var(--ink-faint); color: var(--ink); }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: all 0.15s;
+  }
+  .contact-item:hover {
+    border-color: var(--ink-faint);
+    color: var(--ink);
+  }
+  .contact-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--tag-bg);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 16px; height: 16px; color: var(--ink-muted); }
+  .contact-label { font-size: 11px; color: var(--ink-faint); display: block; margin-bottom: 1px; }
+  .contact-value { font-weight: 500; color: var(--ink); font-size: 13px; }
+
+  /* Footer */
+  footer {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 600px) {
+    nav, main { padding: 0 1.25rem; }
+    .hero { padding: 3.5rem 0 3rem; }
+    section { padding: 3rem 0; }
+    .project-card { padding: 1.25rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="container cv-container shadow">
-
-        <a href="pdf/CV_Abdoul.pdf" target="_blank"
-           class="btn btn-primary download-btn d-nonex"
-           onclick="this.style.display='none'">
-            <i class="fas fa-download"></i> Download</a>
-
-        <!-- First Row -->
-        <div class="row g-0">
-            <!-- Left Column -->
-            <div class="col-md-4 left-column d-flex align-items-center justify-content-center">
-                <img src="img/profile.jpg" class="img-fluid rounded-circle" alt="Profile Photo">
-            </div>
-            <!-- Right Column -->
-            <div class="col-md-8 right-column summary-section">
-               <div class="space"> <br> <br> <br> </div>
-                <h2>Abdoul Baki Seydou</h2>
-                <h2 class="text-blue">Python Developer</h2>
-                <p> Python and Django developer with 20+ years of experience in technical support,
-                    knowledge management, and training. <br>
-                    <br>Recent work includes a production multilingual web platform with 80,000+ entries
-                    and a RAG-based trilingual glossary application using LangChain,
-                    Azure OpenAI, and pgvector — both live and deployed via CI/CD to Oracle OCI.
-                    <br> <br>
-                    Open to hybrid or remote developer and technical roles in Ireland.
-                </p>
-
-            </div>
-        </div>
-        <!-- Second Row -->
-        <div class="row g-0">
-            <!-- Left Column -->
-            <div class="col-md-4 left-column">
-
-                <div class="cv-section about-section">
-                    <h5>Contact</h5>
-                    <div class="divider"></div>
-                    <p><i class="fas fa-map-marker-alt icon"></i> Leixlip, Co. Kildare, Ireland</p>
-                    <p><i class="fas fa-envelope icon"></i>
-                        <a href="mailto:abdoul.bseydou@gmail.com">abdoul.bseydou@gmail.com</a></p>
-                    <p><i class="fas fa-phone icon"></i>
-                        <a href="tel:+353899855473">+353 89 985 5473</a></p>
-                    <p><i class="fab fa-github icon"></i>
-                        <a href="https://github.com/afudu" target="_blank">github.com/afudu</a></p>
-                    <p><i class="fab fa-linkedin icon"></i>
-                        <a href="https://linkedin.com/in/abdoul-b-seydou" target="_blank">
-                            linkedin.com/in/abdoul-b-seydou</a></p>
-                </div>
-
-                <div class="cv-section status-section">
-                    <h5>Status</h5>
-                    <div class="divider"></div>
-                    <p><i class="fa-solid fa-file icon"></i> Stamp 4</p>
-                </div>
-
-                <div class="cv-section skills-section">
-                    <h5>Skills</h5>
-                    <div class="divider"></div>
-                    <strong>Programming Languages</strong>
-                    <ul> <li>Python</li>
-                         <li>HTML</li>
-                         <li>CSS</li>
-                         <li>JavaScript</li>
-                    </ul>
-
-                    <strong>Frameworks</strong>
-                    <ul> <li>Django</li> <li>Flask</li><li>FastAPI</li><li>React</li></ul>
-
-                    <strong>AI / ML</strong>
-                    <ul> <li>Azure OpenAI</li> <li>LangChain</li><li>pgvector</li>
-                        <li>RAG</li></ul>
-
-                    <strong>Databases</strong>
-                    <ul> <li>PostgreSQL</li> <li>SQLite</li></ul>
-
-                    <strong>Tools</strong>
-                    <ul> <li>Git</li> <li>Docker</li><li>Sentry</li></ul>
-
-                    <strong>Testing</strong>
-                    <ul> <li>PyTest</li> <li>Postman</li></ul>
-
-                    <strong>Project Management</strong>
-                    <ul>
-                        <li>Methodology: Scrum(Agile)</li>
-                        <li>Tools: Balsamiq, Notion</li>
-                    </ul>
-
-
-                </div>
-
-                <div class="cv-section languages-section">
-                    <h5>Languages</h5>
-                    <div class="divider"></div>
-                    <ul>
-                     <li>Songhay - Native</li>
-                     <li>English - Fluent</li>
-                     <li>French - Fluent</li>
-                     <li>Dutch - Conversational</li>
-                     <li>Arabic - Functional</li>
-                    </ul>
-                </div>
-
-                <div class="cv-section referrals-section">
-                    <h5>Referrals</h5>
-                    <div class="divider"></div>
-                    <p>Available upon request</p>
-                </div>
-
-                <div class="cv-section interests-hobby-section">
-                    <h5>Hobbies & Interests</h5>
-                    <div class="divider"></div>
-                    <p>Involved in open-source projects supporting under-resourced languages.</p>
-                </div>
-            </div>
-            <!-- Right Column -->
-            <div class="col-md-8 right-column">
-
-                <div class="cv-section mb-5 projects-section">
-                    <h5 class="text-blue"><i class="fas fa-laptop-code"></i> Projects</h5>
-                    <div class="divider"></div>
-
-                    <div class="project1 mb-4">
-                        <strong>RAG Glossary Application</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2026</span><br>
-                        <ul>
-                            <li>Built and deployed a full-stack RAG application featuring a trilingual IT glossary
-                                (English, French, Songhay). FastAPI backend with Azure OpenAI LLM integration
-                                and pgvector semantic search. React + Vite frontend with Tailwind CSS.
-                                Deployed via GitHub Actions CI/CD to Oracle OCI.<br>
-                                Live at <a href="https://songhay.org/glossary/" target="_blank">
-                                    https://songhay.org/glossary/</a>
-                                </li>
-                        </ul>
-                    </div>
-
-                    <div class="project1 mb-4">
-                        <strong>Songhay Online — Multilingual Platform</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2026</span><br>
-                        <ul>
-                            <li>Built and deployed a multilingual web platform featuring a dictionary of over 80,000
-                                entries and a digital library. Stack: Django, PostgreSQL,
-                                Sentry for monitoring, GitHub Actions CI/CD pipeline to Oracle OCI.<br>
-                            Live at <a href="https://songhay.org/" target="_blank">https://songhay.org/</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="project1 mb-4">
-                        <strong>CI/CD Pipeline Deployment</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2025</span><br>
-                        <ul>
-                            <li>Built, tested, and containerized a web application using Docker,
-                                with Sentry for error monitoring,
-                                and set up a GitHub Actions CI/CD pipeline for automated deployment to Render.</li>
-                        </ul>
-                    </div>
-
-                    <div class="project2 mb-4">
-                        <strong>REST CRM API with Django ORM</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2024</span><br>
-                        <ul>
-                            <li>Built a secure role-based RESTful API for a CRM system with PostgreSQL database,
-                                managing client data and interactions.</li>
-                        </ul>
-                    </div>
-
-                    <div class="project3 mb-4">
-                        <strong>Django Book Review App</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2023</span><br>
-                        <ul>
-                            <li>Created a secure full-stack Django application with CRUD functionalities,
-                                enabling users to post, view, and manage book reviews.</li>
-                        </ul>
-                    </div>
-
-                    <div class="project4 mb-4">
-                        <strong>Chess Tournament Manager</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2023</span><br>
-                        <ul>
-                            <li>Designed and built using the MVC pattern a chess tournament app,
-                                allowing tournament managers to run the entire events offline. </li>
-                        </ul>
-                    </div>
-
-                    <div class="project5 mb-4">
-                        <strong>BeautifulSoup Data Scraper</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2022</span><br>
-                        <ul>
-                            <li>Developed a web scraper using BeautifulSoup to extract, store
-                                and analyze data from various online sources. </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="cv-section work-experience-section">
-                    <h5 class="text-blue"><i class="fas fa-briefcase"></i> Work Experience</h5>
-                    <div class="divider"></div>
-
-                    <div class="experience1 mb-4">
-                        <strong>IT Administrator (Project-Based)</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> Oct - Dec 2025</span><br>
-                        <span>Fingal Volunteer Centre</span>
-                        <ul>
-                            <li>Supported telephony and Windows OS/application upgrade initiatives.</li>
-                            <li>Created new IT processes and updated existing documentation
-                                to match current practices. </li>
-                            <li>Developed automations that streamlined daily tasks and improved efficiency.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience2 mb-4">
-                        <strong>Student</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2022 - 2025</span><br>
-                        <span>OpenClassrooms</span>
-                        <ul>
-                            <li>Completed comprehensive projects, covering web scraping,
-                                full-stack web applications, database management, and deployment pipelines. </li>
-                        </ul>
-                    </div>
-
-                    <div class="experience3 mb-4">
-                        <strong>Training Specialist</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2018 - 2022</span><br>
-                        <span>Covalen, DXC | Dublin, Ireland</span>
-                        <ul>
-                            <li>Delivered Induction training to new hires.</li>
-                            <li>Delivered technical enhancement training to support teams. </li>
-                             <li>Designed and developed training programs. </li>
-                        </ul>
-                    </div>
-
-                    <div class="experience4 mb-4">
-                        <strong>Remote Support Specialist</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2012 - 2018</span><br>
-                        <span>CPL, Hewlett-Packard | Dublin, Ireland</span>
-                        <ul>
-                            <li>Provided Tier 2 Support to corporate employees on PC,
-                                hardware and software. </li>
-                            <li>Reduced escalation workload and maintained timely feedback to management.</li>
-                            <li>Managed outages within agreed SLA.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience5 mb-4 ">
-                        <strong>Knowledge Coordinator</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2007 - 2012</span><br>
-                        <span>CPL, Hewlett-Packard | Dublin, Ireland</span>
-                        <ul>
-                            <li>Wrote and updated the support procedures.</li>
-                            <li>Created troubleshooting documents and maintained the knowledge base.</li>
-                            <li>Provided Technical Support to Level 2 agents and Coaches.</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="cv-section mb-5 education-section">
-                    <h5 class="text-blue"><i class="fas fa-graduation-cap"></i> Education</h5>
-                    <div class="divider"></div>
-                    <div class="school mb-4">
-                        <strong>OpenClassrooms</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendar"></i> 2025</span>
-                        <br><span>Python Software Developer - Bachelor's degree</span>
-                        <ul>
-                            <li>Gained expertise in Python programming, web development,
-                                and software engineering best practices.</li>
-                        </ul>
-                    </div>
-                      <div class="school">
-                        <strong>Ferhat Abbas University, Setif, Algeria</strong>
-                        <span class="float-end text-blue"><i class="fas fa-calendarx"></i> </span><br>
-                        <span>Civil Engineer - Master's degree</span>
-                     </div>
-                </div>
-
-            </div>
-        </div>
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">abdoul.bseydou</span>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <div class="hero">
+    <p class="hero-eyebrow">Python · Django · AI Developer</p>
+    <h1>Building things that<br><em>work in production</em></h1>
+    <p class="hero-sub">
+      <p>
+        Hi, I'm <strong>Abdoul Baki Seydou</strong><br> A Python and Django developer based in Ireland.<br>
+        I build backend systems and AI-powered applications — REST APIs, RAG pipelines,
+        full-stack web platforms — with a focus on clean code, testing, and
+        production deployment.<br> <br>
+
+    </p>
+    <div class="hero-links">
+      <a href="#projects" class="btn btn-primary">View projects</a>
+      <a href="https://github.com/Afudu" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <a href="https://linkedin.com/in/abdoul-b-seydou" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <section id="projects">
+    <p class="section-label">Selected projects</p>
+    <div class="projects-grid">
+
+      <!-- Songhay Online -->
+      <a class="project-card" href="https://songhay.org" target="_blank" rel="noopener">
+        <div class="featured-badge">Live · production</div>
+        <div class="project-header">
+          <h2 class="project-title">Songhay Online — Multilingual Platform</h2>
+          <span class="project-year">2026</span>
+        </div>
+        <p class="project-desc">
+          Full-stack multilingual web platform featuring a dictionary of over 80,000 entries
+          and a digital library. Built with Django and PostgreSQL, monitored with Sentry,
+          and deployed via CI/CD pipeline through GitHub Actions to Oracle OCI.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Django</span>
+          <span class="tag tag-accent">PostgreSQL</span>
+          <span class="tag">Sentry</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Oracle OCI</span>
+          <span class="tag">CI/CD</span>
+        </div>
+        <span class="project-link">
+          songhay.org
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- RAG Glossary -->
+      <a class="project-card" href="https://songhay.org/glossary/" target="_blank" rel="noopener">
+        <div class="featured-badge">Live · AI application</div>
+        <div class="project-header">
+          <h2 class="project-title">RAG Trilingual Glossary</h2>
+          <span class="project-year">2026</span>
+        </div>
+        <p class="project-desc">
+          Full-stack RAG application with semantic search over a trilingual IT glossary
+          (English, French, Songhay). FastAPI backend with Azure OpenAI LLM integration
+          and pgvector for vector similarity search. React + Vite frontend deployed
+          via CI/CD to Oracle OCI.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">FastAPI</span>
+          <span class="tag tag-accent">LangChain</span>
+          <span class="tag tag-accent">Azure OpenAI</span>
+          <span class="tag tag-accent">pgvector</span>
+          <span class="tag">React</span>
+          <span class="tag">Vite</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Docker</span>
+        </div>
+        <span class="project-link">
+          songhay.org/glossary
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- Data Science Dashboard -->
+      <a class="project-card" href="https://github.com/Afudu/P16_OpenClassroom_DataScience"
+         target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">Data Visualisation Dashboard</h2>
+          <span class="project-year">2025</span>
+        </div>
+        <p class="project-desc">
+          Interactive data dashboard built with Streamlit and Plotly for analysing
+          and visualising structured datasets. Demonstrates data ingestion,
+          transformation with pandas, and interactive chart rendering.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Python</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Plotly</span>
+          <span class="tag">Pandas</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!--P13 CI/CD Pipeline -->
+      <a class="project-card" href="https://github.com/Afudu/P13_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">CI/CD Pipeline Deployment</h2>
+          <span class="project-year">2025</span>
+        </div>
+        <p class="project-desc">
+          Built, tested, and containerised a web application with Docker and Sentry error
+          monitoring. Set up a GitHub Actions CI/CD pipeline for automated deployment.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Docker</span>
+          <span class="tag tag-accent">GitHub Actions</span>
+          <span class="tag">Sentry</span>
+          <span class="tag">CI/CD</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- P12 CRM API -->
+      <a class="project-card" href="https://github.com/Afudu/P12_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">REST CRM API</h2>
+          <span class="project-year">2024</span>
+        </div>
+        <p class="project-desc">
+          Secure role-based RESTful API for a CRM system built with Django ORM and PostgreSQL.
+          Handles client data and interactions with full authentication and permission management.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Django REST</span>
+          <span class="tag tag-accent">PostgreSQL</span>
+          <span class="tag">PyTest</span>
+          <span class="tag">Postman</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- P11 Flask App Enhancement -->
+      <a class="project-card" href="https://github.com/Afudu/P11_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">Web App Debugging and Enhancement</h2>
+          <span class="project-year">2024</span>
+        </div>
+        <p class="project-desc">
+          Enhanced a Flask web application through bug fixing, code cleanup,
+          and feature improvements to ensure performance and better user experience.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Flask</span>
+          <span class="tag ">Pytest</span>
+          <span class="tag ">Locust</span>
+          <span class="tag ">Json</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- P10 Django Secure Rest API -->
+      <a class="project-card" href="https://github.com/Afudu/P10_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">Secure RESTful API Development</h2>
+          <span class="project-year">2024</span>
+        </div>
+        <p class="project-desc">
+          Developed a secure, role‑based Django RESTful API for an issue‑tracking platform.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Django REST</span>
+          <span class="tag tag-accent">JWT</span>
+          <span class="tag">SQlite</span>
+          <span class="tag">Postman</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- P9 Book review -->
+      <a class="project-card" href="https://github.com/Afudu/P9_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">Book Review App</h2>
+          <span class="project-year">2023</span>
+        </div>
+        <p class="project-desc">
+          Created a secure full-stack Django application with CRUD functionalities,
+          enabling users to post, view, and manage book reviews.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Django</span>
+          <span class="tag tag-accent">Bootstrap</span>
+          <span class="tag">SQlite</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- P7 Solve Problems Using Algorithms in Python -->
+      <a class="project-card" href="https://github.com/Afudu/P7_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">Python Algorithm Optimization</h2>
+          <span class="project-year">2023</span>
+        </div>
+        <p class="project-desc">
+          Built optimized Python algorithms to solve a 0/1‑knapsack‑style investment
+          problem efficiently across various datasets.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Dynamic Programming</span>
+          <span class="tag tag-accent">itertools</span>
+          <span class="tag tag-accent">Time Complexity</span>
+          <span class="tag">Csv</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- P6 Movie website -->
+      <a class="project-card" href="https://github.com/Afudu/P6_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">Python Algorithm Optimization</h2>
+          <span class="project-year">2023</span>
+        </div>
+        <p class="project-desc">
+          Developed a responsive movie review website using HTML, CSS and Javascript.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Javascript</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- P4 Chess Tournament Manager -->
+      <a class="project-card" href="https://github.com/Afudu/P4_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">Chess Tournament App</h2>
+          <span class="project-year">2023</span>
+        </div>
+        <p class="project-desc">
+          Designed and built using the MVC pattern a chess tournament app,
+          allowing tournament managers to run the entire events offline.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Python</span>
+          <span class="tag tag-accent">MVC</span>
+          <span class="tag">TinyDB</span>
+          <span class="tag">Json</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <!-- P2 BeautifulSoup Data Scraper -->
+      <a class="project-card" href="https://github.com/Afudu/P2_OpenClassroom" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h2 class="project-title">BeautifulSoup Data Scraper</h2>
+          <span class="project-year">2022</span>
+        </div>
+        <p class="project-desc">
+          Developed a Python web scraper using BeautifulSoup to extract and process
+          data from a specified website, demonstrating proficiency in web scraping techniques.
+        </p>
+        <div class="project-tags">
+          <span class="tag tag-accent">Web Scraping</span>
+          <span class="tag">BeautifulSoup</span>
+          <span class="tag">Requests</span>
+          <span class="tag">Json</span>
+        </div>
+        <span class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="skills-row">
+      <span class="skill-pill">Python</span>
+      <span class="skill-pill">Django</span>
+      <span class="skill-pill">FastAPI</span>
+      <span class="skill-pill">LangChain</span>
+      <span class="skill-pill">Azure OpenAI</span>
+      <span class="skill-pill">pgvector</span>
+      <span class="skill-pill">React</span>
+      <span class="skill-pill">PostgreSQL</span>
+      <span class="skill-pill">Docker</span>
+      <span class="skill-pill">GitHub Actions</span>
+      <span class="skill-pill">Sentry</span>
+      <span class="skill-pill">PyTest</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-grid">
+
+      <a href="mailto:abdoul.bseydou@gmail.com" class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        </div>
+        <div>
+          <span class="contact-label">Email</span>
+          <span class="contact-value">abdoul.bseydou@gmail.com</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/Afudu" target="_blank" rel="noopener" class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </div>
+        <div>
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/Afudu</span>
+        </div>
+      </a>
+
+      <a href="https://linkedin.com/in/abdoul-b-seydou" target="_blank" rel="noopener" class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div>
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">abdoul-b-seydou</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+
+</footer>
+
+<script>
+  const links = document.querySelectorAll('.nav-links a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+</script>
+
 </body>
 </html>
